@@ -1,0 +1,17 @@
+
+Dont waste time in understanding gritty nitty of how they were invented, code behind it and maths behind it. 
+Learn by doing multiple examples experimentally. 
+
+
+To have this we must follow a approach
+
+1. Define the Problem Statement
+2. Understand The data
+3. Fix the Data (Pre Process/ Data Cleaning/ Standardization/Normalization/Regularization)
+4. Split the Data (Train/Test)
+5. Apply Classification Algorithms (Try on Many algorithms which serve purpose)
+6. Evaluate the results and choose the best algorithm
+7. Look at the output and Tune the algorithm further to more improve the results(Ensembles)
+8. prepare and present your results
+
+
