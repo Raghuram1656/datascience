@@ -1,0 +1,123 @@
+% matplotlib inline
+
+import time
+import os, os.path
+import random
+import cv2
+import glob
+import keras
+import matplotlib
+import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
+from sklearn.cluster import KMeans
+from sklearn.mixture import GaussianMixture
+from sklearn.decomposition import PCA
+
+import pandas as pd
+import numpy as np
+# directory where images are stored
+DIR = "C:/Users/raghuram/Desktop/POC2/folders"
+
+def dataset_stats():
+    
+    # This is an array with the letters available.
+    # If you add another animal later, you will need to structure its images in the same way
+    # and add its letter to this array
+    folder_characters = ['e', 't']
+    
+    # dictionary where we will store the stats
+    stats = []
+    
+    for folder_name in folder_characters:
+        # get a list of subdirectories that start with this character
+        directory_list = sorted(glob.glob("{}/[{}]*".format(DIR, folder_name)))
+        
+        for sub_directory in directory_list:
+            file_names = [file for file in os.listdir(sub_directory)]
+            file_count = len(file_names)
+            sub_directory_name = os.path.basename(sub_directory)
+            stats.append({ "Code": sub_directory_name[:sub_directory_name.find('-')],
+                            "Image count": file_count, 
+                           "Folder name": os.path.basename(sub_directory),
+                            "File names": file_names})
+    
+    
+    df = pd.DataFrame(stats)
+    
+    return df
+    
+    # Show codes with their folder names and image counts
+dataset = dataset_stats().set_index("Code")
+dataset[["Folder name", "Image count"]]
+
+# Function returns an array of images whoose filenames start with a given set of characters
+# after resizing them to 224 x 224
+
+def load_images(codes):
+    
+    # Define empty arrays where we will store our images and labels
+    images = []
+    labels = []
+    
+    for code in codes:
+        # get the folder name for this code
+        folder_name = dataset.loc[code]["Folder name"]
+        
+        for file in dataset.loc[code]["File names"]:                 
+            # build file path
+            file_path = os.path.join(DIR, folder_name, file)
+        
+            # Read the image
+            image = cv2.imread(file_path)
+
+            # Resize it to 224 x 224
+            image = cv2.resize(image, (224,224))
+
+            # Convert it from BGR to RGB so we can plot them later (because openCV reads images as BGR)
+            image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+
+            # Now we add it to our array
+            images.append(image)
+            labels.append(code)
+
+    return images, labels
+    
+    codes = ["emai", "training ta"]
+images, labels = load_images(codes)
+
+def show_random_images(images, labels, number_of_images_to_show=2):
+
+    for code in list(set(labels)):
+
+        indicies = [i for i, label in enumerate(labels) if label == code]
+        random_indicies = [random.choice(indicies) for i in range(number_of_images_to_show)]
+        figure, axis = plt.subplots(1, number_of_images_to_show)
+
+        print("{} random images for code {}".format(number_of_images_to_show, code))
+
+        for image in range(number_of_images_to_show):
+            axis[image].imshow(images[random_indicies[image]])
+        plt.show()
+        
+        
+        show_random_images(images, labels)
+        
+        def normalise_images(images, labels):
+
+    # Convert to numpy arrays
+    images = np.array(images, dtype=np.float32)
+    labels = np.array(labels)
+
+    # Normalise the images
+    images /= 255
+    
+    return images, labels
+    images, labels = normalise_images(images, labels)
+    
+    def shuffle_data(images, labels):
+
+    # Set aside the testing data. We won't touch these until the very end.
+    X_train, X_test, y_train, y_test = train_test_split(images, labels, test_size=0, random_state=728)
+    
+    return X_train, y_train
+    
