@@ -2,7 +2,7 @@
 """
 Created on Tue Aug 28 14:02:36 2018
 
-@author: SusarlaS
+@author: susarla siva raghuram
 """
 
 import nltk
@@ -27,7 +27,7 @@ ssc = sympound(distancefun=distancefun, maxDictionaryEditDistance=10)
 ssc.load_dictionary('C:/Users/RAGHURAM/Desktop/ml/data/DICTS/INDIVIDUALtokens.txt' )
 
 
-#sys.path.insert(0,'C:/Users/susarlas/Desktop/ml/project33')
+#sys.path.insert(0,'C:/Users/RAGHURAM/Desktop/ml/project33')
 input_dir = "C:/Users/RAGHURAM/Desktop/test/"
 
 
