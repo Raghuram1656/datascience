@@ -24,11 +24,11 @@ else:
 
 
 ssc = sympound(distancefun=distancefun, maxDictionaryEditDistance=10)
-ssc.load_dictionary('C:/Users/susarlas/Desktop/ml/data/DICTS/ADPtokens.txt' )
+ssc.load_dictionary('C:/Users/RAGHURAM/Desktop/ml/data/DICTS/INDIVIDUALtokens.txt' )
 
 
 #sys.path.insert(0,'C:/Users/susarlas/Desktop/ml/project33')
-input_dir = "C:/Users/susarlas/Desktop/test/"
+input_dir = "C:/Users/RAGHURAM/Desktop/test/"
 
 
 for dirpath, dirs, files in os.walk(input_dir):	
