@@ -1,0 +1,51 @@
+# pdf splitter
+
+import PyPDF2 
+
+# creating a pdf file object 
+pdf  = 'C:/Users/susarlas/Desktop/pdftest/NEWON.pdf'
+pdfFileObj = open(pdf, 'rb') 
+  
+# creating a pdf reader object 
+pdfReader = PyPDF2.PdfFileReader(pdfFileObj) 
+  
+#  number of pages in pdf file 
+splits  = (pdfReader.numPages) 
+
+print(splits)
+
+for i in range(0,splits):
+        print(i)
+        # creating pdf writer object for (i+1)th split 
+        pdfWriter = PyPDF2.PdfFileWriter() 
+        # output pdf file name 
+        outputpdf = pdf.split('_')[0] +'_' +str(i)+'_'+pdf.split('_')[1] 
+        print(outputpdf)
+        # adding pages to pdf writer object 
+        pdfWriter.addPage(pdfReader.getPage(i)) 
+        # writing split pdf pages to pdf file 
+        with open(outputpdf, "wb") as f: 
+            pdfWriter.write(f) 
+# closing the input pdf file object 
+pdfFileObj.close()            
+
+import tempfile
+from pdf2image import convert_from_path, convert_from_bytes
+import os
+
+input_file = 'C:/Users/susarlas/Desktop/pdftest/NEWON.pdf'
+os.mkdir('C:/Users/susarlas/Desktop/jpg')
+op_dir = 'C:/Users/susarlas/Desktop/jpg'
+
+
+with tempfile.TemporaryDirectory() as path:
+     images_from_path = convert_from_path(input_file, output_folder = op_dir ,fmt='jpg')images_from_path[0].filename
+
+base_path = 'C:/Users/susarlas/Desktop/pdftest'
+
+
+        
+for file_name in os.listdir(op_dir):
+    
+    os.rename(file_name,)
+    
