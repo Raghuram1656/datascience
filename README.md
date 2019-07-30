@@ -14,8 +14,8 @@ My Entire Repository will be mainly focusing on Classification Usecases and pet 
     Data Source                      :  Google Drive (Self Customized Imaged Data Set)
     Programming                      :  Python
     Deep Learning Libraries          :  Keras with Tensorflow as backed
-    Loss Function                    :  Binary Cross Entropy
-    Optimizer                        :  Adam Optimizer
+    Loss Function                    :  Binary Cross Entropy( just because either cat or dog)
+    Optimizer                        :  Adam Optimizer 
     Padding                          :  Valid
     Conv Layers                      :  3
     Max Pool layers                  :  3
