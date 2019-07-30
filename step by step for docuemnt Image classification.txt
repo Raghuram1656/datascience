@@ -1,0 +1,44 @@
+Model: CNN using Keras and Tensorflow to solve "Image Document Classification Problem"
+
+Stride/Kernel                           : 2*2
+Pool window/Filter                      : 5*5
+ 
+Hyper Parameters                        :
+      Learning Rate                     : 0.001 to 0.1
+      Drop out                          : 10%  that is 0.1 
+      Pooling Layers                    :
+      Optimizer                         :
+      Activation Functions              : Hidden Layers (RELU), Output Layers (Soft Max)
+      Epochs                            :
+      Loss/Cost Functions               : Categorical Cross Entropy
+      Batch Size( Mini Batch)           :
+      Hidden Layers                     :
+      Early Stopping/Call Back          :
+      Performance Metric                : Accuracy/validation_loss/validation_accuracy
+      Handling Overfitting              : Add Droup outs / Early Stopping
+      Regularization                    : L2 for better Scale up
+      
+
+Incoming Image Notice:
+
+1. Read the pdf
+2. Count the Number of Pages
+3. Split  pdf into each page and keep it in a temp folder
+4. Convert from pdf to jpg
+4. Then classify each jpg page and get argmax of each page
+5. Have a Multi Class Classifier Page which combines the text and Brings up a final Reason Code
+
+
+
+
+Training:
+
+1. Read the Image
+2. Count the Number of Pages
+3. If count > 1:
+      then create a seperate folder and move that Image to a seperate folder
+      split pdf
+      Label Carefully as per the categories.
+   Else
+      Label single page Image.
+4. 
