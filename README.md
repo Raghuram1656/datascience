@@ -48,3 +48,7 @@ Vector length changes the similarity. So when we normalize the vector length to 
 
 
 Converting from Numpy arrays to pytorch Tensors : https://stackabuse.com/numpy-array-to-tensor-and-tensor-to-numpy-array-with-pytorch/
+
+
+Rules of ML: https://developers.google.com/machine-learning/guides/rules-of-ml
+
