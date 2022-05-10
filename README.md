@@ -28,6 +28,20 @@ My Entire Repository will be mainly focusing on Classification Usecases and pet 
 
 
 
-Thanks,
-S.S.Raghuram.
+
+Orientation vs Magnitude: 
+                          This is to compare Cosine Similarity Vs Dot Product. Cosine Similarity works based on the principle of Orientation and the otherone works on the principle of Magnitude. 
+
+We normalize data, when data follows a Gaussian distribution.
+We Log Transform and Scale[0,1] when data follows a Power-law distribution.
+If  the data is probably a Poisson distribution then,If you have enough data, convert the data to quantiles and scale to [0,1].
+
+In NLP, if we are looking for Similarity measures, then inherently we are trying to compare embeddings. 
+
+A DNN that learns embeddings of input data by predicting the input data itself is called an autoencoder. 
+
+Check this initial read: https://developers.google.com/machine-learning/clustering/similarity/measuring-similarity
+
+
+
 
