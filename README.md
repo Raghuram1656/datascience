@@ -42,6 +42,9 @@ A DNN that learns embeddings of input data by predicting the input data itself i
 
 Check this initial read: https://developers.google.com/machine-learning/clustering/similarity/measuring-similarity
 
+In contrast to the cosine, the dot product is proportional to the vector length.
+Vector length changes the similarity. So when we normalize the vector length to 1, then dotproduct is proportional to cosine. 
+
 
 
 
